@@ -1,4 +1,3 @@
-markdown
 # CareSync Documentation
 
 ## Overview  
