@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+        <title>Patient Dashboard | CareSync</title>
+    </head>
+    <body>
+        <div class="body-container">
+            <!-- Top-left logo -->
+            <img src="{{ url_for('static', filename='images/caresync.jpeg') }}" alt="Logo" class="top-left-image">
+
+            <!-- Dashboard Container -->
+            <div class="dashboard-container">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <h1>Welcome, Patient!</h1>
+                    <p>Manage your health queries and responses here.</p>
+                </div>
+
+                <!-- Query Submission Form -->
+                <div class="query-form">
+                    <h2>Submit a New Query</h2>
+                    <form id="queryForm">
+                        <textarea id="queryInput" placeholder="Type your health-related question here..." required></textarea>
+                        <!-- AI Response Textarea -->
+                        <textarea id="aiResponse" placeholder="AI response will appear here..." readonly></textarea>
+                        
+                        <!-- Button container for side-by-side layout -->
+                        <div class="button-container">
+                            <button type="button" id="speechToTextBtn" class="btn-grad">🎤 Speech to Text</button>
+                            <button type="submit" class="btn-grad">Submit Query</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Query History Section -->
+                <div class="query-history">
+                    <h2>Your Query History</h2>
+                    <div id="queryList" class="scrollable-query-list">
+                        <!-- Queries will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    </body>
+    </html>

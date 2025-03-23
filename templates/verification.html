@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+    <title>Clinician Sign-Up</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Clinician Sign-Up</h1>
+        <form id="clinicianSignupForm">
+            <!-- Step 1: Basic Information -->
+            <div class="form-step active" data-step="1">
+                <h2>Basic Information</h2>
+                <label for="fullName">Full Name :</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                
+            </div>
+
+            <!-- Step 2: Professional Details -->
+            <div class="form-step" data-step="2">
+                <h2>Professional Details</h2>
+                <label for="medicalRegNumber">Medical Registration Number:</label>
+                <input type="text" id="medicalRegNumber" name="medicalRegNumber" placeholder="Enter your medical registration number" required>
+
+                <label for="specialization">Specialization:</label>
+                <textarea id="specialization" name="specialization" placeholder="Enter your specialization (e.g., General Physician, Cardiologist)" required></textarea>
+
+                <label for="yearsOfExperience">Years of Experience:</label>
+                <input type="number" id="yearsOfExperience" name="yearsOfExperience" placeholder="Enter years of experience" required>
+
+                <label for="affiliatedHospitals">Affiliated Hospitals/Clinics:</label>
+                <textarea id="affiliatedHospitals" name="affiliatedHospitals" placeholder="List affiliated hospitals/clinics"></textarea>
+            </div>
+
+            <!-- Step 3: Identity & Verification -->
+            <div class="form-step" data-step="3">
+                <h2>Identity & Verification</h2>
+                <label for="aadharNumber">Aadhar Number:</label>
+                <input type="text" id="aadharNumber" name="aadharNumber" placeholder="Enter your Aadhar number" required>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" id="prevBtn" disabled>Previous</button>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

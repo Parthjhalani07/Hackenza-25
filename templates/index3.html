@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+    <title>Clinician Dashboard | CareSync</title>
+</head>
+<body>
+    <div class="body-container">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Welcome, Clinician!</h1>
+                <p>Review and verify patient queries here.</p>
+            </div>
+            <div class="content-container">
+                <!-- Sidebar for Patient Medical History -->
+                <div class="sidebar">
+                    <h2>Patient Medical History</h2>
+                    <div id="medicalHistory">
+                        <p><strong>Name:</strong> {{ medical_history.get('fullName', 'Not provided') }}</p>
+                        <p><strong>DOB:</strong> {{ medical_history.get('dob', 'Not provided') }}</p>
+                        <p><strong>Gender:</strong> {{ medical_history.get('gender', 'Not provided') }}</p>
+                        <p><strong>Height:</strong> {{ medical_history.get('height', 'Not provided') }} cm</p>
+                        <p><strong>Weight:</strong> {{ medical_history.get('weight', 'Not provided') }} kg</p>
+                        <p><strong>Conditions:</strong> {{ medical_history.get('conditions', 'Not provided') }}</p>
+                        <p><strong>Medications:</strong> {{ medical_history.get('medications', 'Not provided') }}</p>
+                        <p><strong>Allergies:</strong> {{ medical_history.get('allergies', 'Not provided') }}</p>
+                        <p><strong>Family History:</strong> {{ medical_history.get('familyHistory', 'Not provided') }}</p>
+                        <p><strong>Lifestyle:</strong> {{ medical_history.get('lifestyle', 'Not provided') }}</p>
+                        <p><strong>Mental Health:</strong> {{ medical_history.get('mentalHealth', 'Not provided') }}</p>
+                        <p><strong>Additional Info:</strong> {{ medical_history.get('additionalInfo', 'Not provided') }}</p>
+                    </div>
+                </div>
+
+                <!-- Main Content for Queries -->
+                <div class="main-content">
+                    <!-- Current Query Section -->
+                    <div class="current-query">
+                        <h2>Current Query</h2>
+                        <div class="query-item">
+                            <p><strong>Selected Query:</strong> <span id="selectedQueryText">No query selected</span></p>
+                            <textarea id="currentQueryResponse" placeholder="Enter your response here..."></textarea>
+                            <div class="actions">
+                                <button class="btn-grad" onclick="verifyResponse()">Verify</button>
+                                <button class="btn-grad" onclick="editResponse()">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Queries Section -->
+                    <div class="pending-queries">
+                        <h2>Pending Queries</h2>
+                        <div id="pendingQueryList"></div>
+                    </div>
+
+                    <!-- Verified Queries Section -->
+                    <div class="verified-queries">
+                        <h2>Verified Queries</h2>
+                        <div id="verifiedQueryList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/clinician.js') }}"></script>
+</body>
+</html>

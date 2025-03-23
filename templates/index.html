@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+    <title>Login Page | CareSync</title>
+</head>
+<body>
+    <div class="body-container">
+        <img src="{{ url_for('static', filename='images/caresync.jpeg') }}" alt="Logo" class="top-left-image">
+        <div class="container" id="container">
+            <div>
+                <div class="form-container sign-up-container">
+                    <form action="#">
+                        <h1><b>Account</b></h1>
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <a class="btn-grad" href="{{ url_for('verification') }}">Sign Up as Clinician</a>
+                        <a class="btn-grad" href="{{ url_for('history') }}">Sign Up as Patient</a>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#">
+                        <h1><b>Sign In</b></h1>
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <a class="btn-grad" href="{{ url_for('patient_dashboard') }}">Patient Sign In</a>
+                        <a class="btn-grad" href="{{ url_for('clinician_dashboard') }}">Clinician Sign In</a>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>
+                                Start from where you left
+                            </p>
+                            <div class="btn-grad" id="signIn">Sign In</div>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>New Here?</h1>
+                            <p>Join us for a better health</p>
+                            <div class="btn-grad" id="signUp">Sign Up</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+    <title>Medical History Questionnaire</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical History Questionnaire</h1>
+        <form id="medicalHistoryForm">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" data-step="1">
+                <h2>Personal Information</h2>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                <label for="dob">Date of Birth (DOB):</label>
+                <input type="date" id="dob" name="dob" required>
+                <label>Gender:</label>
+                <div class="radio-group-row">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+                <label for="height">Height (in cm):</label>
+                <input type="number" id="height" name="height" placeholder="Enter your height" required>
+                <label for="weight">Weight (in kg):</label>
+                <input type="number" id="weight" name="weight" placeholder="Enter your weight" required>
+            </div>
+
+            
+
+            
+
+            
+
+            <div class="form-step" data-step="2">
+                <h2>Past Medical History</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="diabetes"> Diabetes</label>
+                    <label><input type="checkbox" name="hypertension"> High Blood Pressure</label>
+                    <label><input type="checkbox" name="heartDisease"> Heart Disease</label>
+                    <label><input type="checkbox" name="asthma"> Asthma</label>
+                    <label><input type="checkbox" name="stroke"> Stroke</label>
+                    <div class="other-row">
+                        <label><input type="checkbox" name="other" id="otherCheckbox"> Other:</label>
+                        <input type="text" name="otherCondition" id="otherInput" placeholder="Specify condition" disabled>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-step" data-step="3">
+                <h2>Current Medications</h2>
+                <label for="medications">List all current medications:</label>
+                <textarea id="medications" name="medications" placeholder="Medication name, dosage, frequency"></textarea>
+            </div>
+
+
+
+            <!-- Step 4: Allergies -->
+            <div class="form-step" data-step="4">
+                <h2>Allergies</h2>
+                <div class="checkbox-group"><label><input type="checkbox" name="noAllergies" value="true"> No known allergies</label></div>
+                <label for="medicationAllergies">Medication Allergies:</label>
+                <input type="text" id="medicationAllergies" name="medicationAllergies" placeholder="List medication allergies">
+                <label for="foodAllergies">Food Allergies:</label>
+                <input type="text" id="foodAllergies" name="foodAllergies" placeholder="List food allergies">
+                <label for="environmentalAllergies">Environmental Allergies:</label>
+                <input type="text" id="environmentalAllergies" name="environmentalAllergies" placeholder="List environmental allergies">
+            </div>
+
+            <!-- Family Medical History -->
+<div class="form-step" data-step="5">
+    <h2>Family Medical History</h2>
+    <p>Check if any family member has had the following conditions:</p>
+    <table>
+        <tr>
+            <th>Condition</th>
+            <th>Father</th>
+            <th>Mother</th>
+            <th>Siblings</th>
+            <th>Grandparents</th>
+        </tr>
+        <tr>
+            <td>Diabetes</td>
+            <td><input type="checkbox" name="fatherDiabetes"></td>
+            <td><input type="checkbox" name="motherDiabetes"></td>
+            <td><input type="checkbox" name="siblingsDiabetes"></td>
+            <td><input type="checkbox" name="grandparentsDiabetes"></td>
+        </tr>
+        <tr>
+            <td>Heart Disease</td>
+            <td><input type="checkbox" name="fatherHeart"></td>
+            <td><input type="checkbox" name="motherHeart"></td>
+            <td><input type="checkbox" name="siblingsHeart"></td>
+            <td><input type="checkbox" name="grandparentsHeart"></td>
+        </tr>
+        <tr>
+            <td>Stroke</td>
+            <td><input type="checkbox" name="fatherStroke"></td>
+            <td><input type="checkbox" name="motherStroke"></td>
+            <td><input type="checkbox" name="siblingsStroke"></td>
+            <td><input type="checkbox" name="grandparentsStroke"></td>
+        </tr>
+        <tr>
+            <td>Cancer (Specify type)</td>
+            <td><input type="text" name="fatherCancer"></td>
+            <td><input type="text" name="motherCancer"></td>
+            <td><input type="text" name="siblingsCancer"></td>
+            <td><input type="text" name="grandparentsCancer"></td>
+        </tr>
+        <tr>
+            <td>Mental Health Issues</td>
+            <td><input type="checkbox" name="fatherMental"></td>
+            <td><input type="checkbox" name="motherMental"></td>
+            <td><input type="checkbox" name="siblingsMental"></td>
+            <td><input type="checkbox" name="grandparentsMental"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Lifestyle Information -->
+<div class="form-step" data-step="6">
+    <h2>Lifestyle Information</h2>
+    <label>Smoking Status:</label>
+    <select name="smokingStatus">
+        <option value="never">Never</option>
+        <option value="former">Former Smoker</option>
+        <option value="current">Current Smoker</option>
+    </select>
+
+    <label>Alcohol Use:</label>
+    <select name="alcoholUse">
+        <option value="none">None</option>
+        <option value="occasional">Occasional</option>
+        <option value="regular">Regular</option>
+        <option value="excessive">Excessive</option>
+    </select>
+
+    <label>Exercise Frequency:</label>
+    <select name="exercise">
+        <option value="none">None</option>
+        <option value="1-2">1-2 times/week</option>
+        <option value="3-4">3-4 times/week</option>
+        <option value="daily">Daily</option>
+    </select>
+
+    <label>Dietary Habits:</label>
+    <select name="diet">
+        <option value="balanced">Balanced</option>
+        <option value="highFat">High Fat/Sugar</option>
+        <option value="vegetarian">Vegetarian/Vegan</option>
+        <option value="other">Other</option>
+    </select>
+</div>
+
+<!-- Mental Health -->
+<div class="form-step" data-step="7">
+    <h2>Mental Health</h2>
+    <div class="checkbox-group">
+    <p>Have you ever experienced or been diagnosed with:</p>
+    <label><input type="checkbox" name="anxiety"> Anxiety</label>
+    <label><input type="checkbox" name="depression"> Depression</label>
+    <label><input type="checkbox" name="ptsd"> PTSD</label>
+    <label><input type="checkbox" name="adhd"> ADHD</label>
+    <label><input type="checkbox" name="bipolar"> Bipolar Disorder</label>
+    <label>Other: <input type="text" name="otherMentalHealth"></label>
+    </div>
+</div>
+
+<div class="form-step" data-step="8">
+    <h2>Additional Information</h2>
+    <label for="additionalInfo">Is there anything else you would like us to know?</label>
+    <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Enter any additional information..."></textarea>
+</div>
+
+
+            <!-- Add more steps for other sections (e.g., Current Medications, Past Medical History, etc.) -->
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" id="prevBtn" disabled>Previous</button>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

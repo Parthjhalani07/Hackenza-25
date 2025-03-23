@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    background: #fef9eb;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+h1, h2 {
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #B3D8A8 0%, #3D8D7A 51%, #B3D8A8 100%);
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* Change the direction of the gradient on hover */
+    color: #fff;
+    text-decoration: none;
+}
+
+.body-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fef9eb;
+    overflow: hidden; /* Prevent container scroll */
+}
+
+.dashboard-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    padding: 20px;
+    width: 1200px;
+    max-width: 90%;
+    height: 90vh; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent container scroll */
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-container {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    overflow: hidden; /* Prevent container scroll */
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-y: auto; /* Enable scroll for sidebar */
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+}
+
+.sidebar p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* Enable scroll for main content */
+}
+
+.current-query, .pending-queries, .verified-queries {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.current-query textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.query-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.query-item h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.query-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.query-item .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.query-item .actions button {
+    flex: 1;
+}
